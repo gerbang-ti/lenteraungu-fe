@@ -9,6 +9,7 @@ import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import { HR } from '../../component/htmlModify';
 import { Divider } from 'primereact/divider';
+import { TabView, TabPanel } from 'primereact/tabview';
 const itemRenderer = (item) => (
     <a className="flex align-items-center p-menuitem-link">
         <span className={item.icon} />
@@ -17,69 +18,6 @@ const itemRenderer = (item) => (
         {item.shortcut && <span className="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{item.shortcut}</span>}
     </a>
 );
-
-// const items = [
-//     {
-//         label: 'Home',
-//         icon: 'pi pi-home'
-//     },
-//     {
-//         label: 'Features',
-//         icon: 'pi pi-star'
-//     },
-//     {
-//         label: 'Projects',
-//         icon: 'pi pi-search',
-//         items: [
-//             {
-//                 label: 'Core',
-//                 icon: 'pi pi-bolt',
-//                 shortcut: '⌘+S',
-//                 template: itemRenderer
-//             },
-//             {
-//                 label: 'Blocks',
-//                 icon: 'pi pi-server',
-//                 shortcut: '⌘+B',
-//                 template: itemRenderer
-//             },
-//             {
-//                 label: 'UI Kit',
-//                 icon: 'pi pi-pencil',
-//                 shortcut: '⌘+U',
-//                 template: itemRenderer
-//             },
-//             {
-//                 separator: true
-//             },
-//             {
-//                 label: 'Templates',
-//                 icon: 'pi pi-palette',
-//                 items: [
-//                     {
-//                         label: 'Apollo',
-//                         icon: 'pi pi-palette',
-//                         badge: 2,
-//                         template: itemRenderer
-//                     },
-//                     {
-//                         label: 'Ultima',
-//                         icon: 'pi pi-palette',
-//                         badge: 3,
-//                         template: itemRenderer
-//                     }
-//                 ]
-//             }
-//         ]
-//     },
-//     {
-//         label: 'Contact',
-//         icon: 'pi pi-envelope',
-//         badge: 3,
-//         template: itemRenderer
-//     }
-// ];
-
 
 
 const items = [
@@ -147,6 +85,7 @@ const profileItems = [
 
 
 export const Header = () => {
+    
     const [loginAssign, setLoginAssign] = useState(null);
     const [loginDialog, setLoginDialog] = useState(false);
     const [registerDialog, setRegisterDialog] = useState(false);
@@ -170,7 +109,7 @@ export const Header = () => {
         return (
             <div className="flex align-items-center gap-2">
                 <span>
-                    <InputText placeholder="Search" type="text" style={{ width: "30rem" }} />
+                    <InputText placeholder="Search" type="text" style={{ width: "20rem" }} />
                 </span>
                 {loginAssign ?
                     <span>
