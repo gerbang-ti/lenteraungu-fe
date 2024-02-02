@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Menubar } from 'primereact/menubar';
 import { InputText } from 'primereact/inputtext';
 import { Badge } from 'primereact/badge';
@@ -10,81 +11,91 @@ import { Dialog } from 'primereact/dialog';
 import { HR } from '../../component/htmlModify';
 import { Divider } from 'primereact/divider';
 import { TabView, TabPanel } from 'primereact/tabview';
-const itemRenderer = (item) => (
-    <a className="flex align-items-center p-menuitem-link">
-        <span className={item.icon} />
-        <span className="mx-2">{item.label}</span>
-        {item.badge && <Badge className="ml-auto" value={item.badge} />}
-        {item.shortcut && <span className="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{item.shortcut}</span>}
-    </a>
-);
 
+// const itemRenderer = (item) => (
+//     <a className="flex align-items-center p-menuitem-link">
+//         <span className={item.icon} />
+//         <span className="mx-2">{item.label}</span>
+//         {item.badge && <Badge className="ml-auto" value={item.badge} />}
+//         {item.shortcut && <span className="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{item.shortcut}</span>}
+//     </a>
+// );
 
-const items = [
-    {
-        label: 'Donasi Sekarang',
-    },
-    {
-        label: 'Profil',
-    },
-    {
-        label: 'Layanan',
-        items: [
-            {
-                label: 'Laporan Tahunan',
-            },
-            {
-                label: 'Rekening',
-            },
-            {
-                label: 'Konfirmasi',
-            },
-        ]
-    },
-    {
-        label: 'Blog',
-        items: [
-            {
-                label: 'Berita',
-            },
-            {
-                label: 'Kegiatan',
-            }
-        ]
-    }
-];
-
-const profileItems = [
-    {
-        label: 'Documents',
-        items: [
-            {
-                label: 'New',
-                icon: 'pi pi-plus'
-            },
-            {
-                label: 'Search',
-                icon: 'pi pi-search'
-            }
-        ]
-    },
-    {
-        label: 'Profile',
-        items: [
-            {
-                label: 'Settings',
-                icon: 'pi pi-cog'
-            },
-            {
-                label: 'Logout',
-                icon: 'pi pi-sign-out'
-            }
-        ]
-    }
-];
+// const profileItems = [
+//     {
+//         label: 'Documents',
+//         items: [
+//             {
+//                 label: 'New',
+//                 icon: 'pi pi-plus'
+//             },
+//             {
+//                 label: 'Search',
+//                 icon: 'pi pi-search'
+//             }
+//         ]
+//     },
+//     {
+//         label: 'Profile',
+//         items: [
+//             {
+//                 label: 'Settings',
+//                 icon: 'pi pi-cog'
+//             },
+//             {
+//                 label: 'Logout',
+//                 icon: 'pi pi-sign-out'
+//             }
+//         ]
+//     }
+// ];
 
 
 export const Header = () => {
+
+    const navigate = useNavigate();
+    const items = [
+        {
+            label: 'Donasi Sekarang',
+            command: () => {
+                navigate('/donasi');
+            }
+        },
+        {
+            label: 'Profil',
+            command: () => {
+                navigate('/profil');
+            }
+        },
+        {
+            label: 'Layanan',
+            items: [
+                {
+                    label: 'Laporan Tahunan',
+                },
+                {
+                    label: 'Rekening',
+                },
+                {
+                    label: 'Konfirmasi',
+                },
+            ]
+        },
+        {
+            label: 'Blog',
+            command: () => {
+                navigate('/blog');
+            },
+            items: [
+                {
+                    label: 'Berita',
+                },
+                {
+                    label: 'Kegiatan',
+                }
+            ]
+        }
+    ];
     
     const [loginAssign, setLoginAssign] = useState(null);
     const [loginDialog, setLoginDialog] = useState(false);
@@ -127,7 +138,7 @@ export const Header = () => {
     };
 
     return (
-        <div style={{"positition":"relative", "marginTop":"7em"}}>
+        <div style={{ "positition": "relative", "marginTop": "7em" }}>
             <div className="card" style={{
                 position: 'fixed',
                 zIndex: '1',
