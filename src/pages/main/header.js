@@ -52,7 +52,6 @@ import { TabView, TabPanel } from 'primereact/tabview';
 
 
 export const Header = () => {
-
     const navigate = useNavigate();
     const items = [
         {
@@ -94,13 +93,19 @@ export const Header = () => {
                     label: 'Kegiatan',
                 }
             ]
+        },
+        {
+            label: 'Program',
+            command: () => {
+                navigate('/blog');
+            }
         }
     ];
     
     const [loginAssign, setLoginAssign] = useState(null);
     const [loginDialog, setLoginDialog] = useState(false);
     const [registerDialog, setRegisterDialog] = useState(false);
-    const toast = useRef(null);
+    const toast = useRef(null); 
     const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
 
