@@ -12,44 +12,6 @@ import { HR } from '../../component/htmlModify';
 import { Divider } from 'primereact/divider';
 import { TabView, TabPanel } from 'primereact/tabview';
 
-// const itemRenderer = (item) => (
-//     <a className="flex align-items-center p-menuitem-link">
-//         <span className={item.icon} />
-//         <span className="mx-2">{item.label}</span>
-//         {item.badge && <Badge className="ml-auto" value={item.badge} />}
-//         {item.shortcut && <span className="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{item.shortcut}</span>}
-//     </a>
-// );
-
-// const profileItems = [
-//     {
-//         label: 'Documents',
-//         items: [
-//             {
-//                 label: 'New',
-//                 icon: 'pi pi-plus'
-//             },
-//             {
-//                 label: 'Search',
-//                 icon: 'pi pi-search'
-//             }
-//         ]
-//     },
-//     {
-//         label: 'Profile',
-//         items: [
-//             {
-//                 label: 'Settings',
-//                 icon: 'pi pi-cog'
-//             },
-//             {
-//                 label: 'Logout',
-//                 icon: 'pi pi-sign-out'
-//             }
-//         ]
-//     }
-// ];
-
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -101,11 +63,11 @@ export const Header = () => {
             }
         }
     ];
-    
+
     const [loginAssign, setLoginAssign] = useState(null);
     const [loginDialog, setLoginDialog] = useState(false);
     const [registerDialog, setRegisterDialog] = useState(false);
-    const toast = useRef(null); 
+    const toast = useRef(null);
     const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
 
@@ -118,9 +80,12 @@ export const Header = () => {
 
     }
 
-    const start = <><div style={{ paddingLeft: '135px' }}></div><img alt="logo" src="lentera-ungu.png" height="150" className="mr-2" style={{
-        position: 'absolute', top: '-25px', left: '-5px'
-    }}></img></>;
+    const start = <><div style={{ paddingLeft: '135px' }}></div>
+        <div style={{
+                textAlign:'center'
+            }} onClick={() => navigate('/')}>
+            <img alt="logo" src="lentera-ungu.png" className="main-icon" style={{margin:'0 auto !important'}}></img>
+        </div></>;
     const end = () => {
         return (
             <div className="flex align-items-center gap-2">
